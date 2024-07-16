@@ -70,64 +70,115 @@ class simpleProject extends StatelessWidget {
           color: Color.fromARGB(255, 150, 201, 32),
         ), //go to material icon https://fonts.google.com/icons
       ),
-      body: Column(
-        children: [
-          Container(
-            child: Text(
-              "Hello, Friends",
-              style: TextStyle(fontSize: 9.0),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(0, 0, 378, 0),
+        //to can scroll if column have big height than screen height
+        child: Column(
+          children: [
+            Container(
+              child: Text(
+                "Hello, Friends",
+                style: TextStyle(fontSize: 9.0),
+              ),
+              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              padding: EdgeInsets.all(11), //like padding
+              height: 200.0,
+              width: 200.0,
+              alignment: Alignment
+                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              transform: Matrix4.rotationZ(0.01), //rotate
+              decoration: BoxDecoration(
+                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+                shape: BoxShape.rectangle, //rectangle,circle
+                color: Colors.grey, //background color of container
+                border:
+                    Border.all(color: Colors.black, width: 2.0), //border color
+              ),
             ),
-            margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-            padding: EdgeInsets.all(11), //like padding
-            height: 200.0,
-            width: 200.0,
-            alignment: Alignment
-                .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-            transform: Matrix4.rotationZ(0.01), //rotate
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-              shape: BoxShape.rectangle, //rectangle,circle
-              color: Colors.grey, //background color of container
-              border:
-                  Border.all(color: Colors.black, width: 2.0), //border color
+            Container(
+              child: Text(
+                "Hello, Friends",
+                style: TextStyle(fontSize: 9.0),
+              ),
+              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              padding: EdgeInsets.all(11), //like padding
+              height: 200.0,
+              width: 200.0,
+              alignment: Alignment
+                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              transform: Matrix4.rotationZ(0.01), //rotate
+              decoration: BoxDecoration(
+                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+                shape: BoxShape.rectangle, //rectangle,circle
+                color: Colors.grey, //background color of container
+                border:
+                    Border.all(color: Colors.black, width: 2.0), //border color
+              ),
             ),
-          ),
-          Container(
-            child: Text(
-              "Hello, Friends",
-              style: TextStyle(fontSize: 9.0),
+            Container(
+              child: Text(
+                "Hello, Friends",
+                style: TextStyle(fontSize: 9.0),
+              ),
+              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              padding: EdgeInsets.all(11), //like padding
+              height: 200.0,
+              width: 200.0,
+              alignment: Alignment
+                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              transform: Matrix4.rotationZ(0.01), //rotate
+              decoration: BoxDecoration(
+                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+                shape: BoxShape.rectangle, //rectangle,circle
+                color: Colors.grey, //background color of container
+                border:
+                    Border.all(color: Colors.black, width: 2.0), //border color
+              ),
             ),
-            margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-            padding: EdgeInsets.all(11), //like padding
-            height: 100.0,
-            width: 100.0,
-            alignment: Alignment
-                .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-            transform: Matrix4.rotationZ(0.01), //rotate
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-              shape: BoxShape.circle, //rectangle,circle
-              color: Colors.grey, //background color of container
-              border:
-                  Border.all(color: Colors.black, width: 2.0), //border color
+            Container(
+              child: Text(
+                "Hello, Friends",
+                style: TextStyle(fontSize: 9.0),
+              ),
+              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              padding: EdgeInsets.all(11), //like padding
+              height: 100.0,
+              width: 100.0,
+              alignment: Alignment
+                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              transform: Matrix4.rotationZ(0.01), //rotate
+              decoration: BoxDecoration(
+                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+                shape: BoxShape.circle, //rectangle,circle
+                color: Colors.grey, //background color of container
+                border:
+                    Border.all(color: Colors.black, width: 2.0), //border color
+              ),
             ),
-          ),
-          Text(
-            "data",
-            style: TextStyle(fontSize: 22.0, color: Colors.white,backgroundColor: Colors.grey),
-          ),
-          SizedBox(height: 12,),//add space between Text & IconButton
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.message,
-                size: 49,
-                color: Colors.red,
-              )
-          )
-        ],
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,//y-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
-        // crossAxisAlignment: CrossAxisAlignment.end,//x-axis of bigest widget
+            SizedBox(
+              height: 12,
+            ),
+            Text(
+              "data",
+              style: TextStyle(
+                  fontSize: 22.0,
+                  color: Colors.white,
+                  backgroundColor: Colors.grey),
+            ),
+            SizedBox(
+              height: 12,
+            ), //add space between Text & IconButton
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.message,
+                  size: 49,
+                  color: Colors.red,
+                ))
+          ],
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,//y-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
+          // crossAxisAlignment: CrossAxisAlignment.end,//x-axis of bigest widget
+        ),
       ),
     );
   }
