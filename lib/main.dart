@@ -70,25 +70,25 @@ class simpleProject extends StatelessWidget {
           color: Color.fromARGB(255, 150, 201, 32),
         ), //go to material icon https://fonts.google.com/icons
       ),
-      body: Center(
-          child: Text(
-        'السلام عليكم, اليوم سنتكلم عن درس Flutter و Dart ',
-        style: TextStyle(
-          fontSize: 30.0,
-          backgroundColor: Color.fromARGB(227, 107, 101, 93),
-          color: Colors.white,
-          decoration: TextDecoration.none,//overline:top, underline:bottom,lineThrough:on,none
-          fontStyle: FontStyle.italic,//italic,normal 
-          fontWeight: FontWeight.bold,//bold,normal,w100 -> 900
-          height: 3,//space before & after line
-          letterSpacing: 12.0,
-          wordSpacing: 15.0
+      body: Container(
+        child: Text("Hello, Friends", style: TextStyle(fontSize: 12.0),),
+        // color: Colors.grey,//background color of container,[should be in container or decoration]
+        // margin: EdgeInsets.fromLTRB(10, 12, 3, 0),//all(), fromLTRB(left,top,right,bottom), symmetric(vertical: space in top & bottom,horizental:space in left & right)
+        // margin: EdgeInsets.symmetric(vertical: 22,horizontal: 33),//EdgeInsets.fromLTRB(33, 22, 33, 22)
+        margin: EdgeInsets.all(11),//EdgeInsets.fromLTRB(11, 11, 11, 11)
+        padding: EdgeInsets.all(11),//like padding
+        height: 220.0,
+        width: 261.0,
+        alignment: Alignment.center,//move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+        transform: Matrix4.rotationZ(0.01),//rotate 
+        decoration: BoxDecoration(
+          // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+          shape: BoxShape.circle,//rectangle,circle
+          color: Colors.grey,//background color of container
+          border: Border.all(color: Colors.black, width: 2.0),//border color
+        ),
       ),
-        maxLines: 3, //show number of lines
-        overflow: TextOverflow.fade, //for more lines, ellipsis: 3 points, fade:opacity,
-        textAlign: TextAlign.center, //right,left,center
-        textDirection: TextDirection.rtl, //rtl: for arabic, ltr: for other lang
-      )),
+          
     );
   }
 }
