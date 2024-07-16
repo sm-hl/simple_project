@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,10 +26,16 @@ class simpleProject extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 50, //color of appbar
-        title: Text("Home"),
+        title: Text(
+          "Home",
+          style: TextStyle(
+              color: Color.fromARGB(220, 175, 221, 49),
+              fontSize: 22,
+              fontWeight: FontWeight.w400),
+        ),
         centerTitle: true, //center title
-        leading: IconButton(//left side of appbar
+        leading: IconButton(
+            //left side of appbar
             onPressed: () {},
             icon: Icon(
               Icons.menu,
@@ -50,8 +58,37 @@ class simpleProject extends StatelessWidget {
                 color: Color.fromARGB(255, 150, 201, 32),
               )),
         ],
+        backgroundColor: Colors.white,
+        shadowColor: Colors.black,
+        elevation: 7, //color of appbar controll shadow coordination
       ),
-      body: Center(child: Text('Hello, Salma 👋', style: TextStyle(fontSize: 40))),
+      floatingActionButton: FloatingActionButton(
+        //fixed button on bottom right
+        onPressed: () {},
+        child: Icon(
+          Icons.settings,
+          color: Color.fromARGB(255, 150, 201, 32),
+        ), //go to material icon https://fonts.google.com/icons
+      ),
+      body: Center(
+          child: Text(
+        'السلام عليكم, اليوم سنتكلم عن درس Flutter و Dart ',
+        style: TextStyle(
+          fontSize: 30.0,
+          backgroundColor: Color.fromARGB(227, 107, 101, 93),
+          color: Colors.white,
+          decoration: TextDecoration.none,//overline:top, underline:bottom,lineThrough:on,none
+          fontStyle: FontStyle.italic,//italic,normal 
+          fontWeight: FontWeight.bold,//bold,normal,w100 -> 900
+          height: 3,//space before & after line
+          letterSpacing: 12.0,
+          wordSpacing: 15.0
+      ),
+        maxLines: 3, //show number of lines
+        overflow: TextOverflow.fade, //for more lines, ellipsis: 3 points, fade:opacity,
+        textAlign: TextAlign.center, //right,left,center
+        textDirection: TextDirection.rtl, //rtl: for arabic, ltr: for other lang
+      )),
     );
   }
 }
