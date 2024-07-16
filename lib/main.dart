@@ -71,9 +71,10 @@ class simpleProject extends StatelessWidget {
         ), //go to material icon https://fonts.google.com/icons
       ),
       body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,//for column by default : Axis.vertical, for row use : Axis.horizontal , but this not work with main and cross axis alignment
         padding: EdgeInsets.fromLTRB(0, 0, 378, 0),
         //to can scroll if column have big height than screen height
-        child: Column(
+        child: Row(
           children: [
             Container(
               child: Text(
@@ -156,7 +157,8 @@ class simpleProject extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 12,
+              // height: 12,//height for column
+              width: 12,//width for row
             ),
             Text(
               "data",
@@ -176,8 +178,9 @@ class simpleProject extends StatelessWidget {
                   color: Colors.red,
                 ))
           ],
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,//y-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
-          // crossAxisAlignment: CrossAxisAlignment.end,//x-axis of bigest widget
+          //use these if scrollDirection: Axis.horizontal not used
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,//x-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
+          // crossAxisAlignment: CrossAxisAlignment.end,//y-axis of bigest widget
         ),
       ),
     );
