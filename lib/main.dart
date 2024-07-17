@@ -71,74 +71,84 @@ class simpleProject extends StatelessWidget {
             color: Color.fromARGB(255, 1100, 201, 32),
           ), //go to material icon https://fonts.google.com/icons
         ),
-        body: Wrap(
-          direction: Axis.vertical,//horizental by default
-          alignment: WrapAlignment.spaceAround,//start,center,end,spaceAround,spaceBetwen,spaceEvenlychange place of last widgets
-          spacing: 12,//horizental spacing
-          runSpacing: 12,//vertical spacing
-          children: [
-            ElevatedButton(
-              onPressed: (){},
-              child: Text("click"),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+        body: Center(
+          child: Container(
+            color: Colors.blue[200],
+            padding: EdgeInsets.all(12),
+            height: 300,
+            width: 300,
+            child: Center(
+              child: Wrap(
+                direction: Axis.vertical,//horizental by default
+                alignment: WrapAlignment.spaceAround,//start,center,end,spaceAround,spaceBetwen,spaceEvenlychange place of last widgets
+                spacing: 12,//horizental spacing
+                runSpacing: 12,//vertical spacing
+                children: [
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: Text("1"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                      backgroundColor: MaterialStateProperty.all(Colors.orange),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: Text("2"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                      backgroundColor: MaterialStateProperty.all(Colors.orange),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: Text("3"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                      backgroundColor: MaterialStateProperty.all(Colors.orange),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: Text("4"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                      backgroundColor: MaterialStateProperty.all(Colors.orange),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: Text("5"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                      backgroundColor: MaterialStateProperty.all(Colors.orange),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: Text("6"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                      backgroundColor: MaterialStateProperty.all(Colors.orange),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    ),
+                  ),
+                
+                ],
               ),
             ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text("click"),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text("click"),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text("click"),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text("click"),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text("click"),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-              ),
-            ),
-          
-          ],
+          ),
         ));
   }
 }
