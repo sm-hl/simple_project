@@ -71,7 +71,11 @@ class simpleProject extends StatelessWidget {
             color: Color.fromARGB(255, 1100, 201, 32),
           ), //go to material icon https://fonts.google.com/icons
         ),
-        body: Row(
+        body: Wrap(
+          direction: Axis.vertical,//horizental by default
+          alignment: WrapAlignment.spaceAround,//start,center,end,spaceAround,spaceBetwen,spaceEvenlychange place of last widgets
+          spacing: 12,//horizental spacing
+          runSpacing: 12,//vertical spacing
           children: [
             ElevatedButton(
               onPressed: (){},
@@ -82,7 +86,58 @@ class simpleProject extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.orange),
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
               ),
-            )
+            ),
+            ElevatedButton(
+              onPressed: (){},
+              child: Text("click"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                backgroundColor: MaterialStateProperty.all(Colors.orange),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: (){},
+              child: Text("click"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                backgroundColor: MaterialStateProperty.all(Colors.orange),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: (){},
+              child: Text("click"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                backgroundColor: MaterialStateProperty.all(Colors.orange),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: (){},
+              child: Text("click"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                backgroundColor: MaterialStateProperty.all(Colors.orange),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: (){},
+              child: Text("click"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                backgroundColor: MaterialStateProperty.all(Colors.orange),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+              ),
+            ),
+          
           ],
         ));
   }
