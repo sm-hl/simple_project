@@ -70,94 +70,44 @@ class simpleProject extends StatelessWidget {
           color: Color.fromARGB(255, 150, 201, 32),
         ), //go to material icon https://fonts.google.com/icons
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: Container(
+        height: 300,
+        width: double.infinity,
+        color: Colors.blueGrey,
+        child: Row(
           children: [
-            Container(
-              child: Text("box1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
-              width: double.infinity,//full screen width
-              height: 300,
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(bottom: 22),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.2),
-                color: Colors.blueGrey,
+            Expanded(//divide the empty space to total flex number and distributed to children
+              flex: 1,//0: not expanded
+              child: Container(
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                color: Colors.amber[200],
+                child: Text("box1", style: TextStyle(color: Colors.white),),
               ),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
-                    width: 100,
-                    height: 50,
-                    margin: EdgeInsets.only(right: 22),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                  Container(
-                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
-                    width: 100,
-                    height: 50,
-                    margin: EdgeInsets.only(right: 22),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                  Container(
-                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
-                    width: 100,
-                    height: 50,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                  Container(
-                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
-                    width: 100,
-                    height: 50,
-                    margin: EdgeInsets.symmetric(horizontal: 22),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                  Container(
-                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
-                    width: 100,
-                    height: 50,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                ],
+            Expanded(
+              flex: 2,//0: not expanded
+              child: Container(
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                color: Colors.blue[300],
+                child: Text("box1", style: TextStyle(color: Colors.white),),
               ),
             ),
-            Container(
-              child: Text("box3", style: TextStyle(color: Colors.white)),
-              width: 500,
-              height: 300,
-              margin: EdgeInsets.only(top: 22),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.2),
-                color: Colors.blueGrey,
+            Expanded(
+              flex: 1,//0: not expanded
+              child: Container(
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                color: Colors.red[300],
+                child: Text("box1", style: TextStyle(color: Colors.white),),
               ),
             ),
           ],
-        )
+        ),
       )
     );
   }
