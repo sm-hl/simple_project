@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,//false: remove debug ticket, true: show it
       theme: ThemeData.light(useMaterial3: true),
       home: simpleProject(),
     );
@@ -70,7 +70,9 @@ class simpleProject extends StatelessWidget {
           color: Color.fromARGB(255, 150, 201, 32),
         ), //go to material icon https://fonts.google.com/icons
       ),
-      body: Container(
+      body: Padding(
+        padding: EdgeInsets.only(top: 12),//add space out of widget child
+        child: Container(
         height: 500,
         width: double.infinity,
         color: Colors.blueGrey,
@@ -108,6 +110,7 @@ class simpleProject extends StatelessWidget {
             ),
           ],
         ),
+      ),  
       )
     );
   }
