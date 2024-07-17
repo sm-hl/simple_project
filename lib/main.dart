@@ -71,10 +71,10 @@ class simpleProject extends StatelessWidget {
         ), //go to material icon https://fonts.google.com/icons
       ),
       body: Container(
-        height: 300,
+        height: 500,
         width: double.infinity,
         color: Colors.blueGrey,
-        child: Row(
+        child: Column(
           children: [
             Expanded(//divide the empty space to total flex number and distributed to children
               flex: 1,//0: not expanded
