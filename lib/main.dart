@@ -71,86 +71,19 @@ class simpleProject extends StatelessWidget {
             color: Color.fromARGB(255, 1100, 201, 32),
           ), //go to material icon https://fonts.google.com/icons
         ),
-        body: Center(
-          child: Container(
-            padding: EdgeInsets.all(9),
-            height: 300,
-            width: 300,
-            color: Colors.blueGrey,
-            child: Stack(
-              //like absolute in css, boxes over each other, so we should use positioned
-              children: [
-                Positioned(
-                  top: 0, //leave space at the top
-                  left: 0,
-                  height: 100,
-                  width: 100,
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.green[200],
-                    child: Text(
-                      "box1",
-                      style: TextStyle(fontSize: 22),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  height: 100, //use it here in place of Container
-                  width: 100,
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.amber[200],
-                    child: Text(
-                      "box2",
-                      style: TextStyle(fontSize: 22),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  height: 100, //use it here in place of Container
-                  width: 100,
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.red[200],
-                    child: Text(
-                      "box2",
-                      style: TextStyle(fontSize: 22),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  height: 100, //use it here in place of Container
-                  width: 100,
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.blue[200],
-                    child: Text(
-                      "box2",
-                      style: TextStyle(fontSize: 22),
-                    ),
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.red[300],
-                    height: 100,
-                    width: 100,
-                    child: Text(
-                      "box2",
-                      style: TextStyle(fontSize: 22),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        body: Row(
+          children: [
+            ElevatedButton(
+              onPressed: (){},
+              child: Text("click"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(40)),
+                foregroundColor: MaterialStateProperty.all(Colors.white),//color of text
+                backgroundColor: MaterialStateProperty.all(Colors.orange),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+              ),
+            )
+          ],
         ));
   }
 }
