@@ -41,7 +41,7 @@ class simpleProject extends StatelessWidget {
               icon: Icon(
                 Icons.menu,
                 size: 33,
-                color: Color.fromARGB(255, 150, 201, 32),
+                color: Color.fromARGB(255, 1100, 201, 32),
               )),
           actions: [
             IconButton(
@@ -49,14 +49,14 @@ class simpleProject extends StatelessWidget {
                 icon: Icon(
                   Icons.message,
                   size: 25,
-                  color: Color.fromARGB(255, 150, 201, 32),
+                  color: Color.fromARGB(255, 1100, 201, 32),
                 )),
             IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.search,
                   size: 25,
-                  color: Color.fromARGB(255, 150, 201, 32),
+                  color: Color.fromARGB(255, 1100, 201, 32),
                 )),
           ],
           backgroundColor: Colors.white,
@@ -68,37 +68,84 @@ class simpleProject extends StatelessWidget {
           onPressed: () {},
           child: Icon(
             Icons.settings,
-            color: Color.fromARGB(255, 150, 201, 32),
+            color: Color.fromARGB(255, 1100, 201, 32),
           ), //go to material icon https://fonts.google.com/icons
         ),
         body: Center(
           child: Container(
-            padding: EdgeInsets.all(12),
+            padding: EdgeInsets.all(9),
             height: 300,
             width: 300,
             color: Colors.blueGrey,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Stack(
+              //like absolute in css, boxes over each other, so we should use positioned
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  width: 100,
+                Positioned(
+                  top: 0, //leave space at the top
+                  left: 0,
                   height: 100,
-                  color: Colors.green[200],
-                  child: Text(
-                    "box1",
-                    style: TextStyle(fontSize: 22),
+                  width: 100,
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.green[200],
+                    child: Text(
+                      "box1",
+                      style: TextStyle(fontSize: 22),
+                    ),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.center,
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  height: 100, //use it here in place of Container
                   width: 100,
-                  height: 100,
-                  color: Colors.amber[200],
-                  child: Text(
-                    "box1",
-                    style: TextStyle(fontSize: 22),
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.amber[200],
+                    child: Text(
+                      "box2",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 0,
+                  bottom: 0,
+                  height: 100, //use it here in place of Container
+                  width: 100,
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.red[200],
+                    child: Text(
+                      "box2",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  height: 100, //use it here in place of Container
+                  width: 100,
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.blue[200],
+                    child: Text(
+                      "box2",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.red[300],
+                    height: 100,
+                    width: 100,
+                    child: Text(
+                      "box2",
+                      style: TextStyle(fontSize: 22),
+                    ),
                   ),
                 ),
               ],
