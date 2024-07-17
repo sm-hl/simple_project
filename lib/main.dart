@@ -71,78 +71,94 @@ class simpleProject extends StatelessWidget {
         ), //go to material icon https://fonts.google.com/icons
       ),
       body: SingleChildScrollView(
-        // scrollDirection: Axis.horizontal, //for column by default : Axis.vertical, for row use : Axis.horizontal , but this not work with main and cross axis alignment
-        // padding: EdgeInsets.fromLTRB(0, 0, 378, 0),
-        //to can scroll if column have big height than screen height
-        //use these if scrollDirection: Axis.horizontal not used
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,//x-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
-          crossAxisAlignment: CrossAxisAlignment.end,//y-axis of bigest widget
+        child: Column(
           children: [
             Container(
-              child: Text(
-                "Hello, Friends",
-                style: TextStyle(fontSize: 9.0),
-              ),
-              // margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              // padding: EdgeInsets.all(11), //like padding
-              height: 100.0,
-              width: 100.0,
-              alignment: Alignment.center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              
+              child: Text("box1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+              width: double.infinity,//full screen width
+              height: 300,
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(bottom: 22),
               decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-                shape: BoxShape.circle, //rectangle,circle
-                color: Colors.grey, //background color of container
-                border: Border.all(color: Colors.black, width: 2.0), //border color
+                borderRadius: BorderRadius.circular(12.2),
+                color: Colors.blueGrey,
               ),
             ),
-            SizedBox(
-              // height: 12,//height for column
-              width: 12, //width for row
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+                    width: 100,
+                    height: 50,
+                    margin: EdgeInsets.only(right: 22),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  Container(
+                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+                    width: 100,
+                    height: 50,
+                    margin: EdgeInsets.only(right: 22),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  Container(
+                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+                    width: 100,
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  Container(
+                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+                    width: 100,
+                    height: 50,
+                    margin: EdgeInsets.symmetric(horizontal: 22),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  Container(
+                    child: Text("box2.1",textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+                    width: 100,
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Container(
-              child: Text(
-                "Hello, Friends",
-                style: TextStyle(fontSize: 9.0),
-              ),
-              // margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              // padding: EdgeInsets.all(11), //like padding
-              height: 100.0,
-              width: 100.0,
-              alignment: Alignment.center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              
+              child: Text("box3", style: TextStyle(color: Colors.white)),
+              width: 500,
+              height: 300,
+              margin: EdgeInsets.only(top: 22),
+              alignment: Alignment.center,
               decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-                shape: BoxShape.circle, //rectangle,circle
-                color: Colors.grey, //background color of container
-                border: Border.all(color: Colors.black, width: 2.0), //border color
-              ),
-            ),
-            SizedBox(
-              width: 12,
-            ), //add space between Text & IconButton
-            Container(
-              child: Text(
-                "Hello, Friends",
-                style: TextStyle(fontSize: 9.0),
-              ),
-              // margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              // padding: EdgeInsets.all(11), //like padding
-              height: 100.0,
-              width: 100.0,
-              alignment: Alignment.center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              
-              decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-                shape: BoxShape.circle, //rectangle,circle
-                color: Colors.grey, //background color of container
-                border: Border.all(color: Colors.black, width: 2.0), //border color
+                borderRadius: BorderRadius.circular(12.2),
+                color: Colors.blueGrey,
               ),
             ),
           ],
-        ),
-      ),
+        )
+      )
     );
   }
 }
