@@ -71,116 +71,76 @@ class simpleProject extends StatelessWidget {
         ), //go to material icon https://fonts.google.com/icons
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,//for column by default : Axis.vertical, for row use : Axis.horizontal , but this not work with main and cross axis alignment
-        padding: EdgeInsets.fromLTRB(0, 0, 378, 0),
+        // scrollDirection: Axis.horizontal, //for column by default : Axis.vertical, for row use : Axis.horizontal , but this not work with main and cross axis alignment
+        // padding: EdgeInsets.fromLTRB(0, 0, 378, 0),
         //to can scroll if column have big height than screen height
+        //use these if scrollDirection: Axis.horizontal not used
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,//x-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
+          crossAxisAlignment: CrossAxisAlignment.end,//y-axis of bigest widget
           children: [
             Container(
               child: Text(
                 "Hello, Friends",
                 style: TextStyle(fontSize: 9.0),
               ),
-              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              padding: EdgeInsets.all(11), //like padding
-              height: 200.0,
-              width: 200.0,
-              alignment: Alignment
-                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              transform: Matrix4.rotationZ(0.01), //rotate
-              decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-                shape: BoxShape.rectangle, //rectangle,circle
-                color: Colors.grey, //background color of container
-                border:
-                    Border.all(color: Colors.black, width: 2.0), //border color
-              ),
-            ),
-            Container(
-              child: Text(
-                "Hello, Friends",
-                style: TextStyle(fontSize: 9.0),
-              ),
-              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              padding: EdgeInsets.all(11), //like padding
-              height: 200.0,
-              width: 200.0,
-              alignment: Alignment
-                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              transform: Matrix4.rotationZ(0.01), //rotate
-              decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-                shape: BoxShape.rectangle, //rectangle,circle
-                color: Colors.grey, //background color of container
-                border:
-                    Border.all(color: Colors.black, width: 2.0), //border color
-              ),
-            ),
-            Container(
-              child: Text(
-                "Hello, Friends",
-                style: TextStyle(fontSize: 9.0),
-              ),
-              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              padding: EdgeInsets.all(11), //like padding
-              height: 200.0,
-              width: 200.0,
-              alignment: Alignment
-                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              transform: Matrix4.rotationZ(0.01), //rotate
-              decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
-                shape: BoxShape.rectangle, //rectangle,circle
-                color: Colors.grey, //background color of container
-                border:
-                    Border.all(color: Colors.black, width: 2.0), //border color
-              ),
-            ),
-            Container(
-              child: Text(
-                "Hello, Friends",
-                style: TextStyle(fontSize: 9.0),
-              ),
-              margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
-              padding: EdgeInsets.all(11), //like padding
+              // margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              // padding: EdgeInsets.all(11), //like padding
               height: 100.0,
               width: 100.0,
-              alignment: Alignment
-                  .center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
-              transform: Matrix4.rotationZ(0.01), //rotate
+              alignment: Alignment.center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              
               decoration: BoxDecoration(
                 // borderRadius: BorderRadius.circular(23),//should'nt be with shape
                 shape: BoxShape.circle, //rectangle,circle
                 color: Colors.grey, //background color of container
-                border:
-                    Border.all(color: Colors.black, width: 2.0), //border color
+                border: Border.all(color: Colors.black, width: 2.0), //border color
               ),
             ),
             SizedBox(
               // height: 12,//height for column
-              width: 12,//width for row
+              width: 12, //width for row
             ),
-            Text(
-              "data",
-              style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  backgroundColor: Colors.grey),
+            Container(
+              child: Text(
+                "Hello, Friends",
+                style: TextStyle(fontSize: 9.0),
+              ),
+              // margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              // padding: EdgeInsets.all(11), //like padding
+              height: 100.0,
+              width: 100.0,
+              alignment: Alignment.center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              
+              decoration: BoxDecoration(
+                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+                shape: BoxShape.circle, //rectangle,circle
+                color: Colors.grey, //background color of container
+                border: Border.all(color: Colors.black, width: 2.0), //border color
+              ),
             ),
             SizedBox(
-              height: 12,
+              width: 12,
             ), //add space between Text & IconButton
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.message,
-                  size: 49,
-                  color: Colors.red,
-                ))
+            Container(
+              child: Text(
+                "Hello, Friends",
+                style: TextStyle(fontSize: 9.0),
+              ),
+              // margin: EdgeInsets.all(11), //EdgeInsets.fromLTRB(11, 11, 11, 11)
+              // padding: EdgeInsets.all(11), //like padding
+              height: 100.0,
+              width: 100.0,
+              alignment: Alignment.center, //move to topRight,topLeft,topCenter(same for bottom),centerRight,centerLeft,center [rule is vertical then horizental]
+              
+              decoration: BoxDecoration(
+                // borderRadius: BorderRadius.circular(23),//should'nt be with shape
+                shape: BoxShape.circle, //rectangle,circle
+                color: Colors.grey, //background color of container
+                border: Border.all(color: Colors.black, width: 2.0), //border color
+              ),
+            ),
           ],
-          //use these if scrollDirection: Axis.horizontal not used
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,//x-axis:start,center,end,spaceAround,spaceBetween,spaceEvenly(equal space around widgets)
-          // crossAxisAlignment: CrossAxisAlignment.end,//y-axis of bigest widget
         ),
       ),
     );
