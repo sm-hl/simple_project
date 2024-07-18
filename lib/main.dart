@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +31,7 @@ class simpleProject extends StatelessWidget {
           title: Text(
             "Home",
             style: TextStyle(
-                color: Color.fromARGB(220, 175, 221, 49),
+                color: Colors.blue[700],
                 fontSize: 22,
                 fontWeight: FontWeight.w400),
           ),
@@ -41,7 +42,7 @@ class simpleProject extends StatelessWidget {
               icon: Icon(
                 Icons.menu,
                 size: 33,
-                color: Color.fromARGB(255, 1100, 201, 32),
+                color: Colors.blue[700],
               )),
           actions: [
             IconButton(
@@ -49,14 +50,14 @@ class simpleProject extends StatelessWidget {
                 icon: Icon(
                   Icons.message,
                   size: 25,
-                  color: Color.fromARGB(255, 1100, 201, 32),
+                  color: Colors.blue[700],
                 )),
             IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.search,
                   size: 25,
-                  color: Color.fromARGB(255, 1100, 201, 32),
+                  color: Colors.blue[700],
                 )),
           ],
           backgroundColor: Colors.white,
@@ -68,25 +69,73 @@ class simpleProject extends StatelessWidget {
           onPressed: () {},
           child: Icon(
             Icons.settings,
-            color: Color.fromARGB(255, 1100, 201, 32),
+            color: Colors.blue[700],
           ), //go to material icon https://fonts.google.com/icons
         ),
-        body: Column(
-          children: [
-            Text(
-              'Mes photos',
-              style: TextStyle(
-                fontFamily: 'PlaywriteCU', //restart app to apply font
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
+        body: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 42),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Suivez Nous sur',
+                  style: TextStyle(
+                    fontFamily: 'PlaywriteCU', //restart app to apply font
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue, width: 1.5),
+                        shape: BoxShape.circle,
+                      ),
+                      child: SvgPicture.asset(
+                        "assets/images/facebook.svg",
+                        color: Colors.blue[700],
+                        height: 30,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(12),
+                      margin: EdgeInsets.symmetric(horizontal: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue, width: 1.5),
+                        shape: BoxShape.circle,
+                      ),
+                      child: SvgPicture.asset(
+                        "assets/images/instagram.svg",
+                        color: Colors.blue[700],
+                        height: 30,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blue, width: 1.5),
+                        shape: BoxShape.circle,
+                      ),
+                      child: SvgPicture.asset(
+                        "assets/images/twitter.svg",
+                        color: Colors.blue[700],
+                        height: 30,
+                      ),
+                    ),
+                  
+                  ],
+                )
+              ],
             ),
-            CircleAvatar(
-              // backgroundImage: AssetImage("assets/images/image.jfif"),
-              child: ClipOval(child: Image.asset("assets/images/image.jfif")),//بor a rectangular image you get an oval shape, but for a square image you get a circular shape
-              radius: 66,//to zoom in on the image
-            )
-          ],
+          ),
         ));
   }
 }
