@@ -71,25 +71,23 @@ class simpleProject extends StatelessWidget {
             color: Color.fromARGB(255, 1100, 201, 32),
           ), //go to material icon https://fonts.google.com/icons
         ),
-        body: Center(
-          child: Column(
-            children: [
-              Text(
-                'Mes photos',
-                style: TextStyle(
-                  fontFamily: 'PlaywriteCU',//restart app to apply font
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+        body: Column(
+          children: [
+            Text(
+              'Mes photos',
+              style: TextStyle(
+                fontFamily: 'PlaywriteCU',//restart app to apply font
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
               ),
-              Image.asset(
-                "assets/images/contact-us.jpg",
-                height: 100,
-                width: 100,
-                fit: BoxFit.contain,//contain, cover:zoom image to save dimensions
-              )
-            ],
-          ),
+            ),
+            Image.asset(
+              "assets/images/contact-us.jpg",
+              height: 500,
+              width: double.infinity,
+              fit: BoxFit.cover,//contain, cover:zoom image to save dimensions
+            )
+          ],
         ));
   }
 }
