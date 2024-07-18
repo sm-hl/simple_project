@@ -82,7 +82,8 @@ class simpleProject extends StatelessWidget {
               ),
             ),
             CircleAvatar(
-              backgroundImage: AssetImage("assets/images/image.jfif"),
+              // backgroundImage: AssetImage("assets/images/image.jfif"),
+              child: ClipOval(child: Image.asset("assets/images/image.jfif")),//بor a rectangular image you get an oval shape, but for a square image you get a circular shape
               radius: 66,//to zoom in on the image
             )
           ],
