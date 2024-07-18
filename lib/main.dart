@@ -81,11 +81,10 @@ class simpleProject extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Image.asset(
-              "assets/images/contact-us.jpg",
-              height: 500,
-              width: double.infinity,
-              fit: BoxFit.cover,//contain, cover:zoom image to save dimensions
+            ClipRRect(//To make a rounded corners	
+              child: Image.asset("assets/images/contact-us.jpg", height: 500,fit: BoxFit.cover,),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(40)),//bottomLeft,bottomRight,topLeft,topRight
+              // borderRadius: BorderRadius.circular(12),//to all corners
             )
           ],
         ));
