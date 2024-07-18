@@ -81,22 +81,9 @@ class simpleProject extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            ClipRRect(
-              //To make a rounded corners
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(
-                      40)), //bottomLeft,bottomRight,topLeft,topRight
-              // borderRadius: BorderRadius.circular(12),//to all corners
-              child: Image.network(
-                "https://tse1.mm.bing.net/th?id=OIP.gY3wbSTOv0_hxo1A6j8yKwHaEo&pid=Api&P=0&h=220",
-                height: 200,
-                fit: BoxFit.cover,
-                loadingBuilder: (context, child, progress) {
-                  return progress == null ? child : Container(
-                    margin: EdgeInsets.fromLTRB(100, 100, 0, 0),//change the position
-                    child: CircularProgressIndicator());//to show a loader if internet is slow
-                },
-              ),
+            CircleAvatar(
+              backgroundImage: AssetImage("assets/images/image.jfif"),
+              radius: 66,//to zoom in on the image
             )
           ],
         ));
