@@ -72,13 +72,23 @@ class simpleProject extends StatelessWidget {
           ), //go to material icon https://fonts.google.com/icons
         ),
         body: Center(
-          child: Text(
-            'Utilisation de la police personnalisée',
-            style: TextStyle(
-              fontFamily: 'PlaywriteCU',//restart app to apply font
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-            ),
+          child: Column(
+            children: [
+              Text(
+                'Mes photos',
+                style: TextStyle(
+                  fontFamily: 'PlaywriteCU',//restart app to apply font
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Image.asset(
+                "assets/images/contact-us.jpg",
+                height: 100,
+                width: 100,
+                fit: BoxFit.contain,//contain, cover:zoom image to save dimensions
+              )
+            ],
           ),
         ));
   }
