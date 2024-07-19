@@ -35,22 +35,32 @@ class simpleProject extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Login Form",style: TextStyle(color: Colors.white, fontSize: 22),),
-              SizedBox(height: 20),
+              Icon(Icons.deblur_outlined,size: 82,color: Colors.white),
+              Text(
+                "Sign in",
+                style: TextStyle(color: Colors.white, fontSize: 42),
+              ),
+              
+              SizedBox(height: 50),
               TextField(
                 obscureText: false, //hide text for password, false by default
-                keyboardType: TextInputType.number, //show text type in keyboard
+                keyboardType: TextInputType.text, //show text type in keyboard
                 textInputAction: TextInputAction
-                    .done, //a button in keyboard,done: a check mark, next: ">" mark
+                    .next, //a button in keyboard,done: a check mark, next: ">" mark
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Enter your name', //placeholder
                   hintStyle: TextStyle(color: Colors.grey[700]),
-                  labelText: "Name",
-                  labelStyle: TextStyle(
-                      fontSize: 12, color: Colors.white), //to style label
-                  // border: OutlineInputBorder(),//add full border
-                  // border: InputBorder.none,//remove border
-                  icon: Icon(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(71)),
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                  ), //add full border
+                  filled: true,
+                  fillColor: Colors.white10,
+                  prefixIcon: Icon(
                     Icons.person,
                     color: Colors.grey[400],
                     size: 23,
@@ -66,17 +76,18 @@ class simpleProject extends StatelessWidget {
               SizedBox(height: 20),
               TextField(
                 obscureText: true, //hide text for password, false by default
-                keyboardType: TextInputType.number, //show text type in keyboard
+                keyboardType: TextInputType.text, //show text type in keyboard
                 textInputAction: TextInputAction
                     .done, //a button in keyboard,done: a check mark, next: ">" mark
+                style: TextStyle(color: Colors.white),//color of written text
                 decoration: InputDecoration(
                   hintText: 'Enter your password', //placeholder
                   hintStyle: TextStyle(color: Colors.grey[700]),
-                  labelText: "Password",
-                  labelStyle: TextStyle(
-                      fontSize: 12, color: Colors.white), //to style label
+                  //text under input
+                  helperText: 'should be a valid password',
+                  helperStyle: TextStyle(color: Colors.grey[400]),
                   //-->icon
-                  icon: Icon(
+                  prefixIcon: Icon(
                     Icons.lock,
                     color: Colors.grey[400],
                     size: 23,
@@ -86,16 +97,32 @@ class simpleProject extends StatelessWidget {
                     color: Colors.grey[400],
                     size: 18,
                   ), //in & after input
-                  // prefixIcon: Icon(Icons.person, color: Colors.grey[200],),//in & before input
+                  //prefixIcon: Icon(Icons.person, color: Colors.grey[200],),//in & before input
                   //to add background color to input
                   filled: true,
                   fillColor: Colors.white10,
                   //-->border
-                  // border: OutlineInputBorder(),//add full border
-                  // border: InputBorder.none,//remove border
-                  focusedBorder: OutlineInputBorder(
-                    //to add border color to input
-                    borderSide: BorderSide(color: Colors.white, width: 1.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(71)),
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 22,),
+              Container(
+                width: double.infinity,
+                child: Expanded(//to take all space
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Login'),
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.white),
+                      backgroundColor: MaterialStateProperty.all(Color(0xff2e2d2e)),
+                      padding: MaterialStateProperty.all(EdgeInsets.all(20)),
+                    ),
                   ),
                 ),
               ),
