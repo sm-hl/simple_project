@@ -26,106 +26,78 @@ class simpleProject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff231f26), //background color of my main screen
-
-      appBar: AppBar(
-        title: Text(
-          "Ninja ID Card",
-          style: TextStyle(
-              color: Colors.white, fontSize: 22, fontWeight: FontWeight.w400),
-        ),
-        centerTitle: true, //center title
-        backgroundColor: Color(0xff2e2d2e),
-        elevation: 0, //remove shadow
-      ),
-
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 32),
-        child: SingleChildScrollView(
+    return SafeArea(
+      //to avoid phone barre (time, charge)
+      child: Scaffold(
+        backgroundColor: Color(0xff231f26),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 27.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 40,
-              ),
-              Center(
-                child: Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.symmetric(vertical: 32),
-                  margin: EdgeInsets.only(bottom: 20),
-                  width: 80,
-                  decoration: BoxDecoration(
-                      // color: Colors.white,
-                      // border: Border(bottom: BorderSide(width: 1.5, color: Colors.white30),)
-                      ),
-                  child: Stack(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/profil.jpg"),
-                        radius: 36,
-                      ),
-                      Positioned(
-                          right: 0,
-                          bottom: 0,
-                          child: Icon(
-                            Icons.verified,
-                            color: Colors.blue[200],
-                            size: 17,
-                          )),
-                    ],
-                  ),
+              Text("Login Form",style: TextStyle(color: Colors.white, fontSize: 22),),
+              SizedBox(height: 20),
+              TextField(
+                obscureText: false, //hide text for password, false by default
+                keyboardType: TextInputType.number, //show text type in keyboard
+                textInputAction: TextInputAction
+                    .done, //a button in keyboard,done: a check mark, next: ">" mark
+                decoration: InputDecoration(
+                  hintText: 'Enter your name', //placeholder
+                  hintStyle: TextStyle(color: Colors.grey[700]),
+                  labelText: "Name",
+                  labelStyle: TextStyle(
+                      fontSize: 12, color: Colors.white), //to style label
+                  // border: OutlineInputBorder(),//add full border
+                  // border: InputBorder.none,//remove border
+                  icon: Icon(
+                    Icons.person,
+                    color: Colors.grey[400],
+                    size: 23,
+                  ), //out input
+                  suffixIcon: Icon(
+                    Icons.sticky_note_2,
+                    color: Colors.grey[400],
+                    size: 18,
+                  ), //in & after input
+                  // prefixIcon: Icon(Icons.person, color: Colors.grey[200],),//in & before input
                 ),
               ),
-              SizedBox(
-                height: 40,
-              ),
-              Divider(
-                height: 1,
-                color: Colors.grey[200],
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Text(
-                "NAME",
-                style: TextStyle(color: Colors.grey),
-              ),
-              Text(
-                "Chun-Li",
-                style: TextStyle(color: Colors.amberAccent, fontSize: 33),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "CURRENT NINJA LEVEL",
-                style: TextStyle(color: Colors.grey),
-              ),
-              Text(
-                "8",
-                style: TextStyle(color: Colors.amberAccent, fontSize: 22),
-              ),
-              SizedBox(
-                height: 22,
-              ),
-              Row(
-                children: [
-                  // ignore: deprecated_member_use
-                  SvgPicture.asset(
-                    "assets/images/mail.svg",
-                    color: Colors.grey,
-                    width: 13,
+              SizedBox(height: 20),
+              TextField(
+                obscureText: true, //hide text for password, false by default
+                keyboardType: TextInputType.number, //show text type in keyboard
+                textInputAction: TextInputAction
+                    .done, //a button in keyboard,done: a check mark, next: ">" mark
+                decoration: InputDecoration(
+                  hintText: 'Enter your password', //placeholder
+                  hintStyle: TextStyle(color: Colors.grey[700]),
+                  labelText: "Password",
+                  labelStyle: TextStyle(
+                      fontSize: 12, color: Colors.white), //to style label
+                  //-->icon
+                  icon: Icon(
+                    Icons.lock,
+                    color: Colors.grey[400],
+                    size: 23,
+                  ), //out input
+                  suffixIcon: Icon(
+                    Icons.visibility,
+                    color: Colors.grey[400],
+                    size: 18,
+                  ), //in & after input
+                  // prefixIcon: Icon(Icons.person, color: Colors.grey[200],),//in & before input
+                  //to add background color to input
+                  filled: true,
+                  fillColor: Colors.white10,
+                  //-->border
+                  // border: OutlineInputBorder(),//add full border
+                  // border: InputBorder.none,//remove border
+                  focusedBorder: OutlineInputBorder(
+                    //to add border color to input
+                    borderSide: BorderSide(color: Colors.white, width: 1.0),
                   ),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Text(
-                    "chun.lo@thenetninja.co.uk",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
