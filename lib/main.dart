@@ -27,115 +27,110 @@ class simpleProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Home",
-            style: TextStyle(
-                color: Colors.blue[700],
-                fontSize: 22,
-                fontWeight: FontWeight.w400),
-          ),
-          centerTitle: true, //center title
-          leading: IconButton(
-              //left side of appbar
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu,
-                size: 33,
-                color: Colors.blue[700],
-              )),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.message,
-                  size: 25,
-                  color: Colors.blue[700],
-                )),
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.search,
-                  size: 25,
-                  color: Colors.blue[700],
-                )),
-          ],
-          backgroundColor: Colors.white,
-          shadowColor: Colors.black,
-          elevation: 7, //color of appbar controll shadow coordination
+      backgroundColor: Color(0xff231f26), //background color of my main screen
+
+      appBar: AppBar(
+        title: Text(
+          "Ninja ID Card",
+          style: TextStyle(
+              color: Colors.white, fontSize: 22, fontWeight: FontWeight.w400),
         ),
-        floatingActionButton: FloatingActionButton(
-          //fixed button on bottom right
-          onPressed: () {},
-          child: Icon(
-            Icons.settings,
-            color: Colors.blue[700],
-          ), //go to material icon https://fonts.google.com/icons
-        ),
-        body: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 42),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Suivez Nous sur',
-                  style: TextStyle(
-                    fontFamily: 'PlaywriteCU', //restart app to apply font
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
+        centerTitle: true, //center title
+        backgroundColor: Color(0xff2e2d2e),
+        elevation: 0, //remove shadow
+      ),
+
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 32),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 40,
+              ),
+              Center(
+                child: Container(
+                  alignment: Alignment.center,
+                  // padding: EdgeInsets.symmetric(vertical: 32),
+                  margin: EdgeInsets.only(bottom: 20),
+                  width: 80,
+                  decoration: BoxDecoration(
+                      // color: Colors.white,
+                      // border: Border(bottom: BorderSide(width: 1.5, color: Colors.white30),)
+                      ),
+                  child: Stack(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/profil.jpg"),
+                        radius: 36,
+                      ),
+                      Positioned(
+                          right: 0,
+                          bottom: 0,
+                          child: Icon(
+                            Icons.verified,
+                            color: Colors.blue[200],
+                            size: 17,
+                          )),
+                    ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.blue, width: 1.5),
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
-                        "assets/images/facebook.svg",
-                        color: Colors.blue[700],
-                        height: 30,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(12),
-                      margin: EdgeInsets.symmetric(horizontal: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.blue, width: 1.5),
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
-                        "assets/images/instagram.svg",
-                        color: Colors.blue[700],
-                        height: 30,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.blue, width: 1.5),
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
-                        "assets/images/twitter.svg",
-                        color: Colors.blue[700],
-                        height: 30,
-                      ),
-                    ),
-                  
-                  ],
-                )
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Divider(
+                height: 1,
+                color: Colors.grey[200],
+                thickness: 1,
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Text(
+                "NAME",
+                style: TextStyle(color: Colors.grey),
+              ),
+              Text(
+                "Chun-Li",
+                style: TextStyle(color: Colors.amberAccent, fontSize: 33),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "CURRENT NINJA LEVEL",
+                style: TextStyle(color: Colors.grey),
+              ),
+              Text(
+                "8",
+                style: TextStyle(color: Colors.amberAccent, fontSize: 22),
+              ),
+              SizedBox(
+                height: 22,
+              ),
+              Row(
+                children: [
+                  // ignore: deprecated_member_use
+                  SvgPicture.asset(
+                    "assets/images/mail.svg",
+                    color: Colors.grey,
+                    width: 13,
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Text(
+                    "chun.lo@thenetninja.co.uk",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
