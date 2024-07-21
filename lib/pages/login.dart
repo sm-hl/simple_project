@@ -9,23 +9,33 @@ class Login extends StatelessWidget {
       //to avoid phone barre (time, charge)
       child: Scaffold(
         backgroundColor: Color(0xff231f26),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // delete from stack
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.home,
+            color: Colors.white,
+          ),
+          backgroundColor: Color(0xff2e2d2e),
+        ),
         appBar: AppBar(
-        backgroundColor: Color(0xff2e2d2e),
-        title: Text("Login"),
-        foregroundColor: Colors.white,
-        centerTitle: true,
-      ),
+          backgroundColor: Color(0xff2e2d2e),
+          title: Text("Login"),
+          foregroundColor: Colors.white,
+          centerTitle: true,
+        ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 27.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.deblur_outlined,size: 82,color: Colors.white),
+              Icon(Icons.deblur_outlined, size: 82, color: Colors.white),
               Text(
                 "Sign in",
                 style: TextStyle(color: Colors.white, fontSize: 42),
               ),
-              
               SizedBox(height: 50),
               TextField(
                 obscureText: false, //hide text for password, false by default
@@ -64,7 +74,7 @@ class Login extends StatelessWidget {
                 keyboardType: TextInputType.text, //show text type in keyboard
                 textInputAction: TextInputAction
                     .done, //a button in keyboard,done: a check mark, next: ">" mark
-                style: TextStyle(color: Colors.white),//color of written text
+                style: TextStyle(color: Colors.white), //color of written text
                 decoration: InputDecoration(
                   hintText: 'Enter your password', //placeholder
                   hintStyle: TextStyle(color: Colors.grey[700]),
@@ -96,16 +106,20 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 22,),
+              SizedBox(
+                height: 22,
+              ),
               Container(
                 width: double.infinity,
-                child: Expanded(//to take all space
+                child: Expanded(
+                  //to take all space
                   child: ElevatedButton(
                     onPressed: () {},
                     child: Text('Login'),
                     style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.all(Colors.white),
-                      backgroundColor: MaterialStateProperty.all(Color(0xff2e2d2e)),
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff2e2d2e)),
                       padding: MaterialStateProperty.all(EdgeInsets.all(20)),
                     ),
                   ),

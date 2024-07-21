@@ -19,35 +19,42 @@ class Welcome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/login');
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(vertical: 22, horizontal: 100)),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8))),
+            Container(
+              width: 300,
+              child: ElevatedButton(
+                onPressed: () {
+                  // add to stack
+                  Navigator.pushNamed(context, '/login');
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(vertical: 22)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8))),
+                ),
+                child: Text("Have an account"),
               ),
-              child: Text("Have an account"),
             ),
             SizedBox(
               height: 20,
               child: Text("OR"),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/register');
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(vertical: 22, horizontal: 96)),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8))),
+            Container(
+              width: 300,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(vertical: 22)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8))),
+                ),
+                child: Text("Create an account"),
               ),
-              child: Text("Create an account"),
             ),
           ],
         ),

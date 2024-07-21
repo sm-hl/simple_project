@@ -9,6 +9,16 @@ class Register extends StatelessWidget {
       //to avoid phone barre (time, charge)
       child: Scaffold(
         backgroundColor: Color(0xff231f26),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.home,
+            color: Colors.white,
+          ),
+          backgroundColor: Color(0xff2e2d2e),
+        ),
         appBar: AppBar(
         backgroundColor: Color(0xff2e2d2e),
         title: Text("Register"),
