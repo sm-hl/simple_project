@@ -9,7 +9,7 @@ class Welcome extends StatelessWidget {
       backgroundColor: Color(0xff231f26),
       appBar: AppBar(
         backgroundColor: Color(0xff2e2d2e),
-        title: Text("Welcome to my first App"),
+        title: Text("Welcome", style: TextStyle(fontFamily: "PlaywriteCU"),),
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
@@ -33,12 +33,12 @@ class Welcome extends StatelessWidget {
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8))),
                 ),
-                child: Text("Have an account"),
+                child: Text("Have an account",style: TextStyle(fontFamily: "PlaywriteCU", color: Color(0xff2e2d2e))),
               ),
             ),
-            SizedBox(
-              height: 20,
-              child: Text("OR"),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20),
+              child: Text("OR", style: TextStyle(fontFamily: "PlaywriteCU", color: Colors.white),),
             ),
             Container(
               width: 300,
@@ -53,7 +53,7 @@ class Welcome extends StatelessWidget {
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8))),
                 ),
-                child: Text("Create an account"),
+                child: Text("Create an account",style: TextStyle(fontFamily: "PlaywriteCU", color: Color(0xff2e2d2e))),
               ),
             ),
           ],

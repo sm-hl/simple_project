@@ -22,7 +22,7 @@ class Login extends StatelessWidget {
         ),
         appBar: AppBar(
           backgroundColor: Color(0xff2e2d2e),
-          title: Text("Login"),
+          title: Text("Login", style: TextStyle(fontFamily: "PlaywriteCU"),),
           foregroundColor: Colors.white,
           centerTitle: true,
         ),

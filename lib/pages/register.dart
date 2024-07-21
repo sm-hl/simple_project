@@ -21,7 +21,7 @@ class Register extends StatelessWidget {
         ),
         appBar: AppBar(
         backgroundColor: Color(0xff2e2d2e),
-        title: Text("Register"),
+        title: Text("Register", style: TextStyle(fontFamily: "PlaywriteCU"),),
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
