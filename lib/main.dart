@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:simple_project/pages/login.dart';
 import 'package:simple_project/pages/register.dart';
 import 'package:simple_project/pages/welcome.dart';
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Welcome(),
         '/login': (context) => const Login(),
-        '/register': (context) => const Register(),
+        '/signup': (context) => const Register(),
       },
     );
   }

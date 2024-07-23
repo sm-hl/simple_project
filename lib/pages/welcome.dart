@@ -1,63 +1,95 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff231f26),
-      appBar: AppBar(
-        backgroundColor: Color(0xff2e2d2e),
-        title: Text("Welcome", style: TextStyle(fontFamily: "PlaywriteCU"),),
-        foregroundColor: Colors.white,
-        centerTitle: true,
-      ),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 300,
-              child: ElevatedButton(
-                onPressed: () {
-                  // add to stack
-                  Navigator.pushNamed(context, '/login');
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(vertical: 22)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8))),
+    return SafeArea(
+      child: Scaffold(
+        body: SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 35,
+                    ),
+                    Text(
+                      "WELCOME TO EDU",
+                      style: TextStyle(fontSize: 15, fontFamily: "Courgette"),
+                    ),
+                    SizedBox(
+                      height: 35,
+                    ),
+                    SvgPicture.asset("assets/icons/chat.svg", width: 300),
+                    SizedBox(height: 35,),
+                    ElevatedButton(
+                      onPressed: () {
+                        // add to stack
+                        Navigator.pushNamed(context, '/login');
+                      },
+                      style: ButtonStyle(
+                        foregroundColor: WidgetStateProperty.all(Colors.white),
+                        backgroundColor:
+                            WidgetStateProperty.all(Colors.purple[400]),
+                        padding: WidgetStateProperty.all(
+                            EdgeInsets.symmetric(vertical: 22, horizontal: 58)),
+                        shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(28))),
+                      ),
+                      child: Text("LOGIN",
+                          style: TextStyle(
+                            fontSize: 15,
+                              fontFamily: "Courgette",
+                            )),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/signup');
+                      },
+                      style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStateProperty.all(Colors.purple[100]),
+                        padding: WidgetStateProperty.all(
+                            EdgeInsets.symmetric(vertical: 22, horizontal: 52)),
+                        shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(28))),
+                      ),
+                      child: Text("SIGNUP",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: "Courgette",
+                              color: Color(0xff2e2d2e))),
+                    ),
+                  ],
                 ),
-                child: Text("Have an account",style: TextStyle(fontFamily: "PlaywriteCU", color: Color(0xff2e2d2e))),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 20),
-              child: Text("OR", style: TextStyle(fontFamily: "PlaywriteCU", color: Colors.white),),
-            ),
-            Container(
-              width: 300,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(vertical: 22)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8))),
-                ),
-                child: Text("Create an account",style: TextStyle(fontFamily: "PlaywriteCU", color: Color(0xff2e2d2e))),
-              ),
-            ),
-          ],
+              Positioned(
+                  child: Image.asset(
+                "assets/images/main_top.png",
+                width: 111,
+              )),
+              Positioned(
+                  bottom: 0,
+                  child: Image.asset(
+                    "assets/images/main_bottom.png",
+                    width: 111,
+                  )),
+            ],
+          ),
         ),
+      
       ),
     );
   }
