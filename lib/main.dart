@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,76 +14,90 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<String> courses = ['Dart', 'Flutter', 'React', 'JS'];
-  String selectedCourse = 'Dart';
-
-  List<PopupMenuEntry<dynamic>> list = [];
-
-  @override
-  void initState() {
-    super.initState();
-    list.add(PopupMenuItem(child: Text('Dart'), value: 'Dart'));
-    list.add(PopupMenuItem(child: Text('Flutter'), value: 'Flutter'));
-    list.add(PopupMenuDivider(height: 12,));
-    list.add(PopupMenuItem(child: Text('React'), value: 'React'));
-    list.add(PopupMenuItem(child: Text('JS'), value: 'JS'));
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter App'),
+          title: Text(
+            'Flutter App',
+            style: TextStyle(color: Colors.white),
+          ),
           centerTitle: true,
-          actions: [
-            PopupMenuButton(
-              itemBuilder: (context) =>list,
-              onCanceled: () =>
-                  print('nothing selected'), //if we clicked outside menu
-              onSelected: (value) => setState(() => selectedCourse = value),
-              icon: Icon(Icons.settings), //custom icon
-              padding: EdgeInsets.symmetric(horizontal: 20),
-            )
-          ],
+          backgroundColor: Color.fromARGB(255, 0, 110, 124),
+          iconTheme: IconThemeData(color: Colors.white), //color drawer icon
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            //like row, but useful for buttons
-            ButtonBar(
-              alignment: MainAxisAlignment.start,
-              children: [
-                ElevatedButton(onPressed: () {}, child: Text("add")),
-                ElevatedButton(onPressed: () {}, child: Text("edit")),
-                IconButton(onPressed: () {}, icon: Icon(Icons.save))
-              ],
-            ),
-
-            // DropDown
-            DropdownButton(
-              items: courses.map((course) {
-                return DropdownMenuItem(child: Text(course), value: course);
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  selectedCourse = value.toString();
-                });
-              },
-              value: selectedCourse,
-              icon: Icon(Icons.arrow_drop_down_circle_rounded),
-              iconEnabledColor: Colors.orange,
-              iconDisabledColor: Colors.grey, //if we have onChanged: null,
-            ),
-
-            SizedBox(
-              height: 22,
-            ),
-
-            Text("you want to learn : $selectedCourse"),
-          ],
+        //menu sidebar ->in left, endDrawer: Drawer() -> in right
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 0, 110, 124),
+                ),
+                padding: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundImage:
+                              AssetImage('assets/images/profil.jpg'),
+                        ),
+                        SizedBox(width: 10),
+                        Text('Rizky',
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.white)),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Text("Last activity : 12-02-2024 12:24 am",
+                        style: TextStyle(fontSize: 9, color: Colors.white))
+                  ],
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home,
+                    size: 20, color: Color.fromARGB(255, 0, 110, 124)),
+                title: Text('Home',
+                    style: TextStyle(fontSize: 12, color: Colors.black)),
+                // subtitle: Text('Home', style: TextStyle(fontSize: 11, color: Colors.black)),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.person_3_rounded,
+                    size: 20, color: Color.fromARGB(255, 0, 110, 124)),
+                title: Text('Profile',
+                    style: TextStyle(fontSize: 12, color: Colors.black)),
+                // subtitle: Text('Home', style: TextStyle(fontSize: 11, color: Colors.black)),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.settings,
+                    size: 20, color: Color.fromARGB(255, 0, 110, 124)),
+                title: Text('Settings',
+                    style: TextStyle(fontSize: 12, color: Colors.black)),
+                // subtitle: Text('Home', style: TextStyle(fontSize: 11, color: Colors.black)),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.logout,
+                    size: 20, color: Color.fromARGB(255, 0, 110, 124)),
+                title: Text('Logout',
+                    style: TextStyle(fontSize: 12, color: Colors.black)),
+                // subtitle: Text('Home', style: TextStyle(fontSize: 11, color: Colors.black)),
+                onTap: () {
+                  print('logout');
+                },
+              ),
+            ],
+          ),
         ),
+        // body: null,
       ),
     );
   }
