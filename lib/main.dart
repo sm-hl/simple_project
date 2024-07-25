@@ -14,6 +14,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<String> courses = ['Dart', 'Flutter', 'React', 'JS'];
   String selectedCourse = 'Dart';
+
+  List<PopupMenuEntry<dynamic>> list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    list.add(PopupMenuItem(child: Text('Dart'), value: 'Dart'));
+    list.add(PopupMenuItem(child: Text('Flutter'), value: 'Flutter'));
+    list.add(PopupMenuDivider(height: 12,));
+    list.add(PopupMenuItem(child: Text('React'), value: 'React'));
+    list.add(PopupMenuItem(child: Text('JS'), value: 'JS'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,16 +37,12 @@ class _MyAppState extends State<MyApp> {
           centerTitle: true,
           actions: [
             PopupMenuButton(
-              itemBuilder: (context) => courses
-                  .map((course) => PopupMenuItem(
-                        value: course,
-                        child: Text(course),
-                      ))
-                  .toList(),
-              onCanceled: () => print('nothing selected'),//if we clicked outside menu
+              itemBuilder: (context) =>list,
+              onCanceled: () =>
+                  print('nothing selected'), //if we clicked outside menu
               onSelected: (value) => setState(() => selectedCourse = value),
-              icon: Icon(Icons.settings),//custom icon
-              padding: EdgeInsets.only(right: 50),
+              icon: Icon(Icons.settings), //custom icon
+              padding: EdgeInsets.symmetric(horizontal: 20),
             )
           ],
         ),
