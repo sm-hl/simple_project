@@ -15,25 +15,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          // solution1: Spitl to build function
-          child: MyButton(),
+          // solutio2: using the builder widget
+          child: Builder(builder: (context) {
+            return ElevatedButton(
+              child: Text('Show SnackBar'),
+              onPressed: () {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text('your message here')));
+              },
+            );
+          }),
         ),
       ),
-    );
-  }
-}
-// solution1: Spitl to build function
-class MyButton extends StatelessWidget {
-  const MyButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: Text('Show SnackBar'),
-      onPressed: () {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('your message here')));
-      },
     );
   }
 }
