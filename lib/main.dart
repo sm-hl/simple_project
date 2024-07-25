@@ -41,6 +41,9 @@ class _MyAppState extends State<MyApp> {
                 });
               },
               value: selectedCourse,
+              icon: Icon(Icons.arrow_drop_down_circle_rounded),
+              iconEnabledColor: Colors.orange,
+              iconDisabledColor: Colors.grey,//if we have onChanged: null,
             ),
 
             SizedBox(height: 22,),
