@@ -1,31 +1,54 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// statefulWidget = can call build more time to have interactivity
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-    Widget build(BuildContext context) {
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<String> courses = ['Dart', 'Flutter', 'React', 'JS'];
+  String selectedCourse = 'Dart';
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.stretch,//give same width but for all screen
-        children: [
-          ElevatedButton(onPressed: (){}, child: Text('short')),
-          ElevatedButton(onPressed: (){}, child: Text('a bit longer')),
-          ElevatedButton(onPressed: (){}, child: Text('a longest text button')),
-        ],
+      home: Scaffold(
+        body: Column(
+          children: [
+            //like row, but useful for buttons
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text("add")),
+                ElevatedButton(onPressed: () {}, child: Text("edit")),
+                IconButton(onPressed: () {}, icon: Icon(Icons.save))
+              ],
+            ),
+
+            // DropDown
+            DropdownButton(
+              items: courses.map((course){
+                return DropdownMenuItem(child: Text(course), value: course);
+              }).toList(),
+              onChanged: (value){
+                setState(() {
+                  selectedCourse = value.toString();
+                });
+              },
+              value: selectedCourse,
+            ),
+
+            SizedBox(height: 22,),
+          
+            Text("you want to learn : $selectedCourse"),
+          ],
+        ),
       ),
     );
   }
-
 }
