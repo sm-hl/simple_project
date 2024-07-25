@@ -15,20 +15,12 @@ class MyApp extends StatelessWidget {
     Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Stack(
-        children: [
-          Center(
-        child: CircularProgressIndicator(),
-      ), 
-      Center(
-        // use FadeInImage.assetNetwork for local images 
-        child: FadeInImage.memoryNetwork(//image be showed from opacity 0 to 1
-          placeholder: kTransparentImage,
+      home: Center(
+        child: FadeInImage.assetNetwork(
+          placeholder: 'assets/images/loading.gif',//from https://www.pinterest.com/pin/317363104968450178/
           image: 'https://s3-eu-west-1.amazonaws.com/blog-ecotree/blog/0001/01/ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg',
         ),
       ),
-        ],
-      )
     );
   }
 
