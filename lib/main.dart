@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,11 +16,14 @@ class MyApp extends StatelessWidget {
     Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Center(
-        child: FadeInImage.assetNetwork(
-          placeholder: 'assets/images/loading.gif',//from https://www.pinterest.com/pin/317363104968450178/
-          image: 'https://s3-eu-west-1.amazonaws.com/blog-ecotree/blog/0001/01/ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg',
-        ),
+      home: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,//give same width but for all screen
+        children: [
+          ElevatedButton(onPressed: (){}, child: Text('short')),
+          ElevatedButton(onPressed: (){}, child: Text('a bit longer')),
+          ElevatedButton(onPressed: (){}, child: Text('a longest text button')),
+        ],
       ),
     );
   }
