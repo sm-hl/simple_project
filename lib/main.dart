@@ -17,12 +17,32 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter App'),
+          centerTitle: true,
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) => courses
+                  .map((course) => PopupMenuItem(
+                        value: course,
+                        child: Text(course),
+                      ))
+                  .toList(),
+              onCanceled: () => print('nothing selected'),//if we clicked outside menu
+              onSelected: (value) => setState(() => selectedCourse = value),
+              icon: Icon(Icons.settings),//custom icon
+              padding: EdgeInsets.only(right: 50),
+            )
+          ],
+        ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             //like row, but useful for buttons
             ButtonBar(
-              alignment: MainAxisAlignment.center,
+              alignment: MainAxisAlignment.start,
               children: [
                 ElevatedButton(onPressed: () {}, child: Text("add")),
                 ElevatedButton(onPressed: () {}, child: Text("edit")),
@@ -32,10 +52,10 @@ class _MyAppState extends State<MyApp> {
 
             // DropDown
             DropdownButton(
-              items: courses.map((course){
+              items: courses.map((course) {
                 return DropdownMenuItem(child: Text(course), value: course);
               }).toList(),
-              onChanged: (value){
+              onChanged: (value) {
                 setState(() {
                   selectedCourse = value.toString();
                 });
@@ -43,11 +63,13 @@ class _MyAppState extends State<MyApp> {
               value: selectedCourse,
               icon: Icon(Icons.arrow_drop_down_circle_rounded),
               iconEnabledColor: Colors.orange,
-              iconDisabledColor: Colors.grey,//if we have onChanged: null,
+              iconDisabledColor: Colors.grey, //if we have onChanged: null,
             ),
 
-            SizedBox(height: 22,),
-          
+            SizedBox(
+              height: 22,
+            ),
+
             Text("you want to learn : $selectedCourse"),
           ],
         ),
