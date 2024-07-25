@@ -15,13 +15,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
+          // solution1: Spitl to build function
           child: MyButton(),
         ),
       ),
     );
   }
 }
-
+// solution1: Spitl to build function
 class MyButton extends StatelessWidget {
   const MyButton({super.key});
 
