@@ -13,7 +13,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
+      theme: ThemeData(
+        primaryColor: Colors.purple[700],
+        floatingActionButtonTheme: FloatingActionButtonThemeData(foregroundColor: Colors.purple[200], backgroundColor: Colors.purple[900]),
+        tabBarTheme: TabBarTheme(indicatorColor: Colors.purple[200], labelColor: Colors.purple[100], unselectedLabelColor: Colors.white38, dividerColor: Colors.purple[900]),
+        secondaryHeaderColor: Colors.red,
+        appBarTheme: AppBarTheme(backgroundColor: Colors.purple[900], foregroundColor: Colors.white70),
+        scaffoldBackgroundColor: Colors.purple[200],
+        iconTheme: IconThemeData(size: 100,color: Colors.purple[900]),//for all icons in app (named by : app wide theme)
+      ),
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
         length: 3,//number of tabs
         child: Scaffold(
           appBar: AppBar(
@@ -27,13 +46,41 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
+            floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add),),
+          //use this if add icon not showen
+          // floatingActionButton: Theme(
+          //   data: Theme.of(context).copyWith(
+          //     iconTheme: IconThemeData(size: 20)
+          //   ),
+          //   child: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add),),
+          // ),
           body: TabBarView(children: <Widget>[//tab content
-            Center(child: Text("Home Page")),
-            Center(child: Text("Search Page")),
-            Center(child: Text("Profile Page")),
+            Center(
+              child: Column(
+                children: [
+                  Icon(Icons.home),
+                  Text("Home Page", style: TextStyle(color: Theme.of(context).primaryColor),),
+                ],
+              )
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Icon(Icons.search),
+                  Text("Search Page", style: TextStyle(color: Theme.of(context).primaryColor),),
+                ],
+              )
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Icon(Icons.person),
+                  Text("Profile Page", style: TextStyle(color: Theme.of(context).primaryColor),),
+                ],
+              )
+            ),
           ]),
         ),
-      ),
-    );
+      );
   }
 }
