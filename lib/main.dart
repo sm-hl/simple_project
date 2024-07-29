@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (context, index) {
           return Container(
-            height: 200,
+            width: 200,
             color: Colors.amber[colors[index]],
             child: Text(entries[index]),
           );
