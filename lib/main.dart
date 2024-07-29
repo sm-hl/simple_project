@@ -31,13 +31,13 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('all about listView'),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: entries.length,
+        separatorBuilder: (context, index) => Divider(),
         itemBuilder: (context, index) {
           return Container(
             height: 200,
             color: Colors.amber[colors[index]],
-            margin: EdgeInsets.only(bottom: 5),
             child: Text(entries[index]),
           );
         },
