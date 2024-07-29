@@ -32,6 +32,7 @@ class _HomeState extends State<Home> {
         title: Text('all about listView'),
       ),
       body: ListView.separated(
+        scrollDirection: Axis.horizontal,
         itemCount: entries.length,
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (context, index) {
