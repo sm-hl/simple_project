@@ -31,17 +31,17 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('all about listView'),
       ),
-      body: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: entries.length,
-        separatorBuilder: (context, index) => Divider(),
-        itemBuilder: (context, index) {
-          return Container(
-            width: 200,
-            color: Colors.amber[colors[index]],
-            child: Text(entries[index]),
-          );
-        },
+      body: ListView.custom(
+        childrenDelegate: SliverChildListDelegate(
+          List.generate(100,(index){
+            return Container(
+              height: 200,
+              color: Colors.red[600],
+              margin: EdgeInsets.only(bottom:5),
+              child: Text('Item $index'),
+            );
+          })
+        ),
       ),
     );
   }
