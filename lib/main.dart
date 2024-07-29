@@ -23,35 +23,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final List<String> entries = ['box1', 'box2', 'box3', 'box4'];
+  final List<int> colors = [100, 200, 300, 400];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('all about listView'),
       ),
-      body: ListView(//used for a small number of items => decrease performance
-        children: [
-          Container(
-            color: Colors.red,
+      body: ListView.builder(
+        itemCount: entries.length,
+        itemBuilder: (context, index) {
+          return Container(
             height: 200,
-            child: Text('box'),
-          ),
-          Container(
-            color: Colors.green,
-            height: 200,
-            child: Text('box'),
-          ),
-          Container(
-            color: Colors.blue,
-            height: 200,
-            child: Text('box'),
-          ),
-          Container(
-            color: Colors.grey,
-            height: 200,
-            child: Text('box'),
-          ),
-        ],
+            color: Colors.amber[colors[index]],
+            margin: EdgeInsets.only(bottom: 5),
+            child: Text(entries[index]),
+          );
+        },
       ),
     );
   }
