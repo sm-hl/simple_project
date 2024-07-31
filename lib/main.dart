@@ -32,6 +32,7 @@ class _HomeState extends State<Home> {
       body: Center(
         child: Column(
           children: [
+            //alert dialog
             ElevatedButton(
               child: Text('Alert Dialog'),
               onPressed: () {
@@ -128,13 +129,49 @@ class _HomeState extends State<Home> {
                     context: context,
                     builder: (BuildContext context) {
                       return CustomDialog(
-                        title:'To continue',
+                        title: 'To continue',
                         description: 'Please subscribe to our chanel',
                         buttonText: 'ok',
                       );
                     });
               },
             ),
+            SizedBox(
+              height: 22,
+            ),
+            // full screen dialog
+            ElevatedButton(
+                child: Text('Full Screen Dialog'),
+                onPressed: () {
+                  showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true, //click out to close dialog
+                      barrierLabel: MaterialLocalizations.of(context)
+                          .modalBarrierDismissLabel,
+                      barrierColor: Colors.black,
+                      transitionDuration: Duration(microseconds: 200),
+                      pageBuilder: (BuildContext context, Animation first,
+                          Animation second) {
+                        return Center(
+                            child: Container(
+                          width: MediaQuery.of(context).size.width -
+                              10, //width of screen - 10
+                          height: MediaQuery.of(context).size.height - 80,
+                          padding: EdgeInsets.all(20),
+                          color: Colors.grey[50],
+                          child: Column(
+                            children: [
+                              Text('Please share video', style: TextStyle(color: Colors.black, decoration: TextDecoration.none),),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('exit'))
+                            ],
+                          ),
+                        ));
+                      });
+                }),
           ],
         ),
       ),
