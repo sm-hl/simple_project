@@ -32,16 +32,29 @@ class _HomeState extends State<Home> {
         title: Text('all about listView'),
       ),
       body: ListView.custom(
-        childrenDelegate: SliverChildListDelegate(
-          List.generate(100,(index){
-            return Container(
-              height: 200,
-              color: Colors.red[600],
-              margin: EdgeInsets.only(bottom:5),
-              child: Text('Item $index'),
-            );
-          })
-        ),
+        childrenDelegate: SliverChildListDelegate(List.generate(100, (index) {
+          return Container(
+            // height: 200,
+            color: Colors.grey[300],
+            margin: EdgeInsets.only(bottom: 5),
+            child: Center(
+              child: ListTile(
+                leading: Icon(
+                  Icons.car_crash,
+                  size: 24,
+                  color: Colors.amber,
+                ), //left icon
+                title: Text('Item $index'),
+                subtitle: Text('subtitle $index'),
+                trailing: Icon(Icons.more), //right icon
+                onTap: () {
+                   ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text('you taped item $index')));
+                },
+              ),
+            ),
+          );
+        })),
       ),
     );
   }
