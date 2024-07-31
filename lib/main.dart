@@ -29,32 +29,31 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('all about listView'),
+        title: Text('all about GridView'),
       ),
-      body: ListView.custom(
-        childrenDelegate: SliverChildListDelegate(List.generate(100, (index) {
+      body: GridView.count(
+        // scrollDirection: Axis.vertical,//is default
+        crossAxisSpacing:
+            2, //space between rows for Axis.horizontal, space between rows for Axis.vertical
+        mainAxisSpacing: 5, //space between items
+        crossAxisCount:
+            2, //number of rows when using Axis.horizontal, or column when using Axis.vertical
+        children: List.generate(100, (index) {
           return Container(
-            // height: 200,
-            color: Colors.grey[300],
-            margin: EdgeInsets.only(bottom: 5),
-            child: Center(
-              child: ListTile(
-                leading: Icon(
-                  Icons.car_crash,
-                  size: 24,
-                  color: Colors.amber,
-                ), //left icon
-                title: Text('Item $index'),
-                subtitle: Text('subtitle $index'),
-                trailing: Icon(Icons.more), //right icon
-                onTap: () {
-                   ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text('you taped item $index')));
-                },
-              ),
-            ),
-          );
-        })),
+              color: Colors.grey[300],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.car_crash,size: 100,),
+                  Text('Product $index'),
+                  SizedBox(height: 20,),
+                  ElevatedButton(onPressed: (){
+                    ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text('Product $index is added to cart!')));
+                  }, child: Icon(Icons.shopping_bag,size: 20,),)
+                ],
+              ));
+        }),
       ),
     );
   }
