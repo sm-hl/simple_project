@@ -23,38 +23,207 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> entries = ['box1', 'box2', 'box3', 'box4'];
-  final List<int> colors = [100, 200, 300, 400];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('all about GridView'),
+        title: Text('Dialogs'),
       ),
-      body: GridView.count(
-        // scrollDirection: Axis.vertical,//is default
-        crossAxisSpacing:
-            2, //space between rows for Axis.horizontal, space between rows for Axis.vertical
-        mainAxisSpacing: 5, //space between items
-        crossAxisCount:
-            2, //number of rows when using Axis.horizontal, or column when using Axis.vertical
-        children: List.generate(100, (index) {
-          return Container(
-              color: Colors.grey[300],
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.car_crash,size: 100,),
-                  Text('Product $index'),
-                  SizedBox(height: 20,),
-                  ElevatedButton(onPressed: (){
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text('Product $index is added to cart!')));
-                  }, child: Icon(Icons.shopping_bag,size: 20,),)
-                ],
-              ));
-        }),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+              child: Text('Alert Dialog'),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Alert Dialog'),
+                        content: Container(
+                          height: 120,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.car_crash),
+                              Text('This is an alert dialog'),
+                            ],
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                            child: Text('Close'),
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pop(); //close the alert dialog
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Accept'),
+                            onPressed: () {},
+                          ),
+                        ],
+                      );
+                    });
+              },
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            // example 1
+            ElevatedButton(
+              child: Text('Custom Dialog 1'),
+              onPressed: () {
+                showDialog(
+                    barrierDismissible:
+                        false, //true by default, to close dialog when click out
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Container(
+                            height: 180,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  'Custom dialog',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                      hintText: 'Enter your data'),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                TextButton(
+                                  child: Text('Save'),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pop(); //close the alert dialog
+                                  },
+                                ),
+                              ],
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 40, vertical: 20),
+                          ));
+                    });
+              },
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            // example 2
+            ElevatedButton(
+              child: Text('Custom Dialog 2'),
+              onPressed: () {
+                showDialog(
+                    barrierDismissible:
+                        false, //true by default, to close dialog when click out
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CustomDialog(
+                        title:'To continue',
+                        description: 'Please subscribe to our chanel',
+                        buttonText: 'ok',
+                      );
+                    });
+              },
+            ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class Consts {
+  static const double padding = 16;
+  static const double avatarRadius = 66;
+  Consts._(); //private constructor
+}
+
+class CustomDialog extends StatelessWidget {
+  final String? title, description, buttonText;
+  final Image? image;
+  const CustomDialog(
+      {this.title, this.description, this.buttonText, this.image, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Consts.padding)),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      child: dialogContent(context),
+    );
+  }
+
+  dialogContent(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: Consts.avatarRadius),
+          padding: EdgeInsets.only(
+            top: Consts.avatarRadius + Consts.padding,
+            left: Consts.padding,
+            right: Consts.padding,
+            bottom: Consts.padding,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(Consts.padding),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black, blurRadius: 10, offset: Offset(0, 10)),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                title!,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+              ),
+              SizedBox(
+                height: Consts.padding,
+              ),
+              Text(
+                description!,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
+              SizedBox(
+                height: Consts.padding,
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(buttonText!),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          //to centrate circle
+          right: Consts.padding,
+          left: Consts.padding,
+          child: CircleAvatar(
+            backgroundColor: Colors.blue,
+            radius: Consts.avatarRadius,
+          ),
+        ),
+      ],
     );
   }
 }
