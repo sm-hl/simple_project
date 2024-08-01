@@ -13,19 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      onGenerateRoute: (settings) {
-        //check the route name
-        print(settings.name);
-        if (settings.name == '/second') {
-          Student s = settings.arguments as Student;
-          print(s.name);
-          return MaterialPageRoute(
-            builder: (context) => Second(name: s.name, age: s.age),
-          );
-        }
-        return null;
-      },
+      initialRoute: '/',      
       routes: routes,
     );
   }
