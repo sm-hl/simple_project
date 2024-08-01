@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fancy_flutter_dialog/fancy_flutter_dialog.dart';
+import 'package:simple_project/routes/routes.dart';
 
 main() {
   runApp(MyApp());
@@ -11,7 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      // home: Home(),
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }
