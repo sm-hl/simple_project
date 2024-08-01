@@ -30,8 +30,8 @@ class Home extends StatelessWidget {
           SizedBox(height: 20,),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => Second()));
+            Navigator.pushNamed(
+                  context, '/second', arguments: Student(name: 'Sami', age: 14));
             },
             child: Text(
               "Go To Second Page",
