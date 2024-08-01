@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fancy_flutter_dialog/fancy_flutter_dialog.dart';
 
 main() {
   runApp(MyApp());
@@ -138,7 +139,7 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(
               height: 22,
-            ),
+            ),  
             // full screen dialog
             ElevatedButton(
                 child: Text('Full Screen Dialog'),
@@ -161,15 +162,49 @@ class _HomeState extends State<Home> {
                           color: Colors.grey[50],
                           child: Column(
                             children: [
-                              Text('Please share video', style: TextStyle(color: Colors.black, decoration: TextDecoration.none),),
+                              Text(
+                                'Please share video',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    decoration: TextDecoration.none),
+                              ),
                               TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text('exit'))
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('exit'))
                             ],
                           ),
                         ));
+                      });
+                }),
+            SizedBox(
+              height: 22,
+            ),
+            // fancy dialog
+            ElevatedButton(
+                child: Text('Fancy Dialog'),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return FancyAlertDialog(
+                          title: "Rate us if you like the app",
+                          backgroundColor: Color(0xFF303F9F),
+                          message: "Do you really want to Exit ?",
+                          negativeBtnText: "Cancel",
+                          positiveBtnBackground: Color(0xFFFF4081),
+                          positiveBtnText: "Rate",
+                          negativeBtnBackground: Color(0xFFA9A7A8),
+                          onPositiveClicked: () {
+                            // Positive button clicked action
+                            print("Rate");
+                          },
+                          onNegativeClicked: () {
+                            // Negative button clicked action
+                            print("Cancel");
+                          },
+                        );
                       });
                 }),
           ],
