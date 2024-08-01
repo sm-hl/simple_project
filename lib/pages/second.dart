@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:simple_project/pages/home.dart';
+import 'package:simple_project/product.dart';
 
 class Second extends StatelessWidget {
-  String? name;
-  int? age;
-  Second({this.name, this.age, super.key});
+  Product? product;
+  Second({this.product, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,27 +20,11 @@ class Second extends StatelessWidget {
           body: Center(
             child: Column(
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop('yes');
-                  },
-                  child: Text(
-                    "Yes",
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  ),
-                ),
+                Text('name : ${product?.name}'),
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop('no');
-                  },
-                  child: Text(
-                    "No",
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  ),
-                ),
+                Text('price : ${product?.price}'),
               ],
             ),
           )),

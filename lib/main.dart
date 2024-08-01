@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_project/pages/home.dart';
 import 'package:simple_project/pages/second.dart';
 import 'package:simple_project/routes/routes.dart';
 import 'package:simple_project/student.dart';
@@ -13,8 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',      
-      routes: routes,
+      home: Home(),
     );
   }
 }
