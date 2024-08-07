@@ -31,6 +31,14 @@ class Screen3 extends StatelessWidget {
               },
               child: Text("Open Screen 2"),
             ),
+            SizedBox(height: 10,),
+            // popUntil : remove all routes and go to the specific route
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).popUntil(ModalRoute.withName('/'));
+              },
+              child: Text("go home popUntil()"),
+            ),
           ],
         )
       )
