@@ -1,84 +1,52 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:simple_project/pages/screen1.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final formKey = GlobalKey<FormState>(); //is only for a single form
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home screen"),
-        centerTitle: true,
+        title: Text('Forms 1'),
       ),
-      body: Center(
+      body: Form(
+        key: formKey,
         child: Column(
           children: [
-          // push : use basic route(we call it also "on the fly route")
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (c) => Screen1()));
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Enter your name', //placeholder
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Name required";
+                }
+                return null;
               },
-              child: Text("open Screen 1"),
             ),
-            SizedBox(height: 10,),
-            // pushNamed : use named route
+            SizedBox(height: 22),
             ElevatedButton(
+              child: Text('Send'),
               onPressed: () {
-                Navigator.of(context).pushNamed('/screen1');
-              },
-              child: Text("open Screen 1"),
-            ),
-            SizedBox(height: 10,),
-            // pop : to go back = remove from stack
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();//close app if the home is only route in stack
-              },
-              child: Text("Back using pop()"),
-            ),
-            SizedBox(height: 10,),
-            // maybePop : go back if we have routes in stack
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).maybePop();//if not, it doesn't do anything
-              },
-              child: Text("Back using maybePop()"),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            // canPop : return true if we can go back
-            ElevatedButton(
-              onPressed: () {
-                if (Navigator.of(context).canPop()) 
-                {
-                  Navigator.of(context).pop();
-                } else {
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                            content: Text('Can not pop'),
-                      ),
-                  );
+                //test if form is valid using a key specific for this form
+                if (formKey.currentState!.validate()) {
+                  //store data to local db or send it to api on server
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text('Success : Data has been sent!!')));
                 }
               },
-              child: Text("Back using canPop()"),
-            ),
-            SizedBox(height: 10,),
-            // popAndPushNamed : remove current route from stack then got to next route
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).popAndPushNamed('/screen3');//if we go back,the app will be closed
-              },
-              child: Text("open screen 3"),
-            ),
+            )
           ],
-        )
-      )
+        ),
+      ),
     );
   }
 }
