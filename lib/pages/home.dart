@@ -11,6 +11,24 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String text = '';
+  //4 steps to use TextEditingController : its more flexible
+  //1-Create a TextEditing Controller.
+  final myController = TextEditingController();
+
+  //3-Create a function to print the latest value.
+  getLatest() {
+    setState(() {
+      text = myController.text;
+    });
+  }
+
+  //4-Listen to the controller for changes.
+  @override
+  initState() {
+    super.initState();
+    myController.addListener(getLatest);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +48,8 @@ class _HomeState extends State<Home> {
                 decoration: InputDecoration(
                   hintText: 'first name', //placeholder
                 ),
-                onChanged: (value) {
-                  setState(() {
-                    text = value;
-                  });
-                },
+                //2-Connect the TextEditing Controller to a text field.
+                controller: myController,
               ),
             ],
           ),
