@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -8,34 +10,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String tempValue = '';
+  double? tempValue;
   String tempType = 'Celsius';
-  double result = 0.0;
-
-  double calculatTemperature() {
-    if (tempValue.isEmpty) {
-      return 0.0;
-    }
-    if (tempType == 'Celsius') {
-      return (double.parse(tempValue) * 9 / 5) + 32;
-    } else if (tempType == 'Fahrenheit') {
-      return (double.parse(tempValue) - 32) * 5 / 9;
-    } else {
-      return 0.0;
-    }
-  }
-
-  void handleConversion() {
-    setState(() {
-      result = calculatTemperature();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Temperature Conversion demo1'),
+        title: Text('Temperature Conversion demo2'),
         centerTitle: true,
       ),
       body: Center(
@@ -51,7 +33,12 @@ class _HomeState extends State<Home> {
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onChanged: (value) {
                 setState(() {
-                  tempValue = value;
+                  try {
+                    tempValue = double.parse(value);
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Invalide Input')));
+                  }
                 });
               },
             ),
@@ -79,8 +66,25 @@ class _HomeState extends State<Home> {
               },
             ),
             // button
-            ElevatedButton(onPressed: handleConversion, child: Text('Convert')),
-            Text('Result : ${result.toStringAsFixed(2)}')
+            ElevatedButton(
+              child: Text('Convert'),
+              onPressed: () {
+                setState(() {
+                  if (tempValue != null) {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text('Result Temperature Conversion'),
+                              content: Text(
+                                  'Result : ${tempType == 'Celsius' ? '$tempValue ºC = ${(tempValue! * 9 / 5) + 32} ºF' : '$tempValue ºF = ${(tempValue! - 32) * 5 / 9} ºC'}'),
+                            ));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Please enter a value')));
+                  }
+                });
+              },
+            ),
           ],
         ),
       ),
