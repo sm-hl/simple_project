@@ -10,15 +10,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool isDarkeMode = false;
+  Color? selectedColor;
 
   @override
   Widget build(BuildContext context) {
-    String mode = isDarkeMode ? 'Dark Mode' : 'Light Mode';
-    Color color = isDarkeMode ? Colors.white : Colors.black;
-    Color backgroundColor = isDarkeMode ? Colors.black : Colors.white;
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: selectedColor,
       appBar: AppBar(
         title: Text('Switch'),
         centerTitle: true,
@@ -27,12 +24,23 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(mode, style: TextStyle(color: color, fontSize: 30),),
-            Switch(
-              value: isDarkeMode,//open=true, close:false
-              onChanged: (value) {
+            Text('Orange', style: TextStyle(fontSize: 20),),
+            Radio(
+              value: Colors.orange,//open=if value = groupeValue, close:verse
+              groupValue: selectedColor,
+              onChanged: (newValue) {
                 setState(() {
-                  isDarkeMode = value;
+                  selectedColor = newValue;//newValue take the value of Radio
+                });
+              },
+            ),
+            RadioListTile(//just have a label
+              title: Text('Blue'),
+              value: Colors.blue,//open=if value = groupeValue, close:verse
+              groupValue: selectedColor,
+              onChanged: (newValue) {
+                setState(() {
+                  selectedColor = newValue;//newValue take the value of Radio
                 });
               },
             ),
