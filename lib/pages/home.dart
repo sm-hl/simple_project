@@ -10,49 +10,33 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String text = '';
-  //4 steps to use TextEditingController : its more flexible
-  //1-Create a TextEditing Controller.
-  final myController = TextEditingController();
-
-  //3-Create a function to print the latest value.
-  getLatest() {
-    setState(() {
-      text = myController.text;
-    });
-  }
-
-  //4-Listen to the controller for changes.
-  @override
-  initState() {
-    super.initState();
-    myController.addListener(getLatest);
-  }
+  bool isDarkeMode = false;
 
   @override
   Widget build(BuildContext context) {
+    String mode = isDarkeMode ? 'Dark Mode' : 'Light Mode';
+    Color color = isDarkeMode ? Colors.white : Colors.black;
+    Color backgroundColor = isDarkeMode ? Colors.black : Colors.white;
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: Text('Forms'),
+        title: Text('Switch'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Form(
-          child: Column(
-            children: [
-              Text('You typed \n $text',
-                  style: Theme.of(context).textTheme.headlineLarge),
-              TextFormField(
-                autofocus: true, // to make the cursor on this input
-                decoration: InputDecoration(
-                  hintText: 'first name', //placeholder
-                ),
-                //2-Connect the TextEditing Controller to a text field.
-                controller: myController,
-              ),
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(mode, style: TextStyle(color: color, fontSize: 30),),
+            Switch(
+              value: isDarkeMode,//open=true, close:false
+              onChanged: (value) {
+                setState(() {
+                  isDarkeMode = value;
+                });
+              },
+            ),
+          ],
         ),
       ),
     );
